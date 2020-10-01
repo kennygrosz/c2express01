@@ -23,7 +23,7 @@ var contacts = [
     ],
   },
   {
-    name: "diana prince",
+    name: "helloooooo test",
     age: 25,
     email: "diana@mit.edu",
     courses: [
@@ -32,6 +32,20 @@ var contacts = [
     ],
   },
 ];
+
+var contacts = [];
+
+const getData = async () => {
+  let url = "https://pollysnips.s3.amazonaws.com/users.json";
+  try {
+    let res = await fetch(url);
+    contacts = await res.json();
+    console.log(contacts);
+  } catch (error) {
+    console.log("error");
+  }
+ };
+getData();
 
 app.get("/", function (req, res) {
   res.send("<h1> O Routes: try POST to /contact and GET /contacts </h1>");
